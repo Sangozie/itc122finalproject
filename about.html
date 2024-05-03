@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WEB DESIGN PROJECT</title>
+        <link rel="stylesheet" href = "https://fontawesome.com">
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+   background-color: #f3f5f9;
+}
+
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #4b4276;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+.main_content .carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  gap: 16px;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.main_content{
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+  padding: 100px;
+}
+
+.main_content i {
+  height: 50px;
+  width: 50px;
+  background: #fff;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  font-size: 1.25rem;
+  transform:translateY(-50%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.main_content i:first-child{
+  left: -22px;
+}
+
+.main_content i:last-child{
+  right: -22px;
+}
+
+body .main_content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 150px;
+}
+
+.carousel :where(.card, .img) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.carousel .no-transition{
+  scroll-behavior: auto;
+}
+
+.carousel .dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+
+.carousel .dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel .card{
+  scroll-snap-align: start;
+  height: 324px;
+  list-style: none;
+  background: #4b4276;
+  border-radius: 8px;
+  display: flex;
+  cursor: pointer;
+  padding-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card .img {
+  background: #2a2446;
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+}
+
+.card .img img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4b4276;
+}
+
+.card h2 {
+  font-weight: 500px;
+  font-size: 1.56rem;
+  margin: 30px 0 5px;
+}
+
+.card span {
+  color: #717171;
+  font-size: 1.31rem;
+}
+
+.main_content .section{
+  padding: 4rem 0 3rem ;
+}
+
+@media screen and (max-width: 900px) {
+  .main_content .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .main_content .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+
+
+    </style>
+    <body>
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+  <div class="wrapper">
+    <div class="sidebar">
+        <h2>Anemo</h2>
+        <ul>
+          <li><a href="home.html"><i class="fas fa-home"></i>Home</a></li>
+          <li><a href="product.html"><i class="fas fa-tag"></i>Product</a></li>
+          <li><a href="about.html"><i class="fas fa-user"></i>About</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul> 
+      </div>
+
+      
+  <div class = "main_content">
+    
+    <i id = "left" class="fas fa-arrow-left"></i> 
+    
+    <ul class="carousel">
+      <li class="card">
+        <div class="img"><img src="images/bea.jpg" alt="img" draggable="false"></div>
+        <h2>BEA DE LEON</h2>
+        <span>Leader</span>
+      </li>
+
+      <li class="card">
+        <div class="img"><img src="images/elloissa.jpg" alt="img" draggable="false"></div>
+        <h2>ELLOISSA HERRERA</h2>
+        <span>Co - Leader</span>
+      </li>
+
+      <li class="card">
+        <div class="img"><img src="images/belda.jpg" alt="img" draggable="false"></div>
+        <h2>ARIAN BELDA</h2>
+        <span>Member</span>
+      </li>
+
+      <li class="card">
+        <div class="img"><img src="images/romeo.jpg" alt="img" draggable="false"></div>
+        <h2>ROMEO MONLEON</h2>
+        <span>Member</span>
+      </li>
+
+    </ul>
+    
+    <i id = "right" class="fas fa-arrow-right"></i>
+    
+  </div>
+  <script>
+    const carousel = document.querySelector(".carousel");
+    const arrowBtns = document.querySelectorAll(".main_content i");
+    const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+    const carouselChildrens = [...carousel.children];
+
+    let isDragging = false, startX, starScrollingLeft;
+
+    let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+
+    carouselChildrens.slice(0, cardPerView).reverse().forEach(card => {
+      carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+    });
+
+    carouselChildrens.slice(0, cardPerView).reverse().forEach(card => {
+      carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+    });
+
+    arrowBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+      })
+    });
+
+    const dragStart = (e) => {
+      isDragging = true;
+      carousel.classList.add("dragging");
+      startX = e.pageX;
+      starScrollingLeft = carousel.scrollLeft;
+    }
+
+    const dragging = (e) => {
+      if(!isDragging) return;
+      carousel.scrollLeft = starScrollingLeft - (e.pageX - startX);
+    }
+
+    const dragStop = () => {
+      isDragging = false;
+      carousel.classList.remove("dragging");
+    }
+
+    const infiniteScroll = () => {
+      if(carousel.scrollLeft === 0) {
+        carousel.classList.add("no-transition");
+        carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+        carousel.classList.remove("no-transition");
+     } 
+
+      else if(Math.ceil(arousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth){
+        carousel.classList.add("no-transition");
+        carousel.scrollLeft = carousel.offsetWidth;
+        carousel.classList.remove("no-transition");
+      }
+    }
+
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("mousemove", dragging);
+    document.addEventListener("mouseup", dragStop);
+    carousel.addEventListener("scroll", infiniteScroll);
+  </script>
+    </body>
+</html>

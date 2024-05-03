@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WEB DESIGN PROJECT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f3f5f9;
+        }
+
+        .wrapper {
+            display: flex;
+            position: relative;
+        }
+
+        .wrapper .sidebar {
+            width: 200px;
+            height: 100%;
+            background: #4b4276;
+            padding: 30px 0px;
+            position: fixed;
+        }
+
+        .wrapper .sidebar h2 {
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .wrapper .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #bdb8d7;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .wrapper .sidebar ul li a {
+            color: #bdb8d7;
+            display: block;
+        }
+
+        .wrapper .sidebar ul li a .fas {
+            width: 25px;
+        }
+
+        .wrapper .sidebar ul li:hover {
+            background-color: #594f8d;
+        }
+
+        .wrapper .sidebar ul li:hover a {
+            color: #fff;
+        }
+
+        .wrapper .main_content {
+            width: 100%;
+            margin-left: 200px;
+        }
+
+        .wrapper .main_content .header {
+            padding: 20px;
+            background: #fff;
+            color: #717171;
+            border-bottom: 1px solid #e0e4e8;
+        }
+
+        .wrapper .main_content .info {
+            margin: 20px;
+            color: #717171;
+            line-height: 25px;
+        }
+
+        .wrapper .main_content .info div {
+            margin-bottom: 20px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        ..product-box {
+    background-color: #f4ca16;
+    border: 1px solid #e0e4e8;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    width: calc(100% / 5 - 40px); 
+    margin: 10px; 
+}
+
+.product-box img {
+    width: 100%; 
+    height: 50%; 
+    margin-bottom: 10px;
+}
+.add-to-cart {
+    display: inline-block;
+    padding: 15px 15px;
+	width: 100%;
+    background-color: #535ec2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: 10px; 
+}
+
+.add-to-cart:hover {
+    background-color: #37419e;
+}
+        .product-box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-box p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .product-box:hover {
+            transform: scale(1.05);
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #535ec2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border-spacing: 90px;
+        }
+
+        .read-more:hover {
+            background-color: #37419e;
+        }
+
+        
+          .cart {
+            position: fixed;
+            top: 20px;
+            right: 100px;
+            background-color: #594f8d;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 40px;
+            border-radius: 5%;
+            cursor: pointer;
+        }
+
+        .cart p {
+            margin: 0;
+            color: white;
+            border-radius: 10px;
+            width: 20px;
+            background-color: red;
+            text-align: center;
+        }
+
+        .cartTab {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 500px;
+            background-color: #353432;
+            color: #eee;
+            padding: 10px;
+            font-weight: 300;
+            display: none;
+            z-index: 999;
+        }
+
+        .cartTab h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .listCart {
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .listCart .quantity span {
+    display: inline-block;
+    width: 23px;
+    height: 20px;
+    background-color: #eee;
+    color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px; /* Increased font size */
+    line-height: 23px; /* Adjusted line height */
+    text-align: center;
+}
+    .listCart .quantity span:nth-child(2){
+		background-color: transparent;
+		color: #eee;
+		}
+}
+
+        .listCart .quantity span:nth-child(2) {
+            background-color: transparent;
+            color: red;
+        }
+
+
+        .cartTab .listCart .item {
+            display: grid;
+            grid-template-columns: 70px 150px 100px 1fr;
+            gap: 10px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .cartTab .listCart .item img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding: 10px;
+        }
+
+        .item img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .item .quantity span {
+            cursor: pointer;
+        }
+
+        .item .delete-btn {
+            color: red;
+            cursor: pointer;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn button {
+            background-color: #594f8d;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 30%;
+        }
+
+        .btn button:hover {
+            background-color: #37419e;
+        }
+
+        .close {
+            background-color: #eee;
+            color: black;
+        }
+		.checkout-button {
+            color: white;
+            background-color: #594f8d;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 30%;
+        }
+
+        .checkout-button:hover {
+            background-color: #37419e;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Anemo</h2>
+            <ul>
+                <li><a href="home.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="product.html"><i class="fas fa-shopping-cart"></i>Product</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i>About</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+        <div class="main_content">
+            <div class="header">
+                <h1 style="color:#594f8d;">DAGANRONPA</h1>
+				<div class="cart" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <p id="cartCount">0</p>
+            </div>
+            <div class="info">
+                <div class="product-container">
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="nagitofigure.jpg">
+                        <h3>NAGITO FIGURINE</h3>
+                        <p>Crazy, Hope obssessed boi</p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="mikanfigure.jpg">
+                        <h3>MIKAN FIGURINE</h3>
+                        <p>A cutie nurse who is scared of anything</p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+            
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="junkofigure.jpg">
+                        <h3>JUNKO FIGURINE</h3>
+                        <p>I can fix her (I can really do) by Taylor Swift</p>
+                        <div class="price">₱3000.00</div>
+                       <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="chiakifigure.jpg">
+                        <h3>CHIAKI FIGURINE</h3>
+                        <p>Basically, gamer girl</p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="hinatafigure.jpg">
+                        <h3>HINATA FIGURINE</h3>
+                        <p>Emo boy irl </p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="celestiafigure.jpg">
+                        <h3>CELESTIA FIGURINE</h3>
+                        <p>Gambler, wanting to be a princess</p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="kyokofigure.jpg">
+                        <h3>KYOKO FIGURINE</h3>
+                        <p>Detective but goofy</p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="kokichifigure.jpg">
+                        <h3>KOKICHI FIGURINE</h3>
+                        <p>Grape juice</p>
+                        <div class="price">₱3000.00</div>
+                         <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="kaedefigure.jpg">
+                        <h3>KAEDE FIGURINE</h3>
+                        <p>Bro is the hangman itself, but if you do the wrong key notes</p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+
+                    <div class="product-box" onclick="addToCart(this)">
+                        <img src="nagitolimitedfigure.jpg">
+                        <h3>NAGITO LIMITED FIGURINE</h3>
+                        <p>Buy one take none</p>
+                        <div class="price">₱3000.00</div>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cartTab" id="cartTab">
+        <h1>Shopping Cart</h1>
+        <div class="listCart" id="cartItems">
+  
+</div>
+        <div class="btn">
+            <button class="close" onclick="toggleCart()">Close</button>
+            <button class="checkOut"> <a class="checkout-button"href="checkout.html"> Check Out</a></button>
+        </div>
+    </div>
+   
+    <script>
+        function addToCart(product) {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var productName = product.querySelector('h3').innerText;
+            var productDescription = product.querySelector('p').innerText;
+            var productPrice = product.querySelector('.price').innerText;
+            var productImageSrc = product.querySelector('img').src;
+
+            var productDetails = {
+                name: productName,
+                description: productDescription,
+                price: productPrice,
+                imageSrc: productImageSrc,
+                quantity: 1 
+            };
+
+            cart.push(productDetails);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount(cart.length);
+            updateCartView(cart);
+        }
+
+        function updateCartView(cart) {
+            var cartContainer = document.getElementById('cartItems');
+            cartContainer.innerHTML = ''; 
+
+            cart.forEach(function(item, index) {
+                var itemContainer = document.createElement('div');
+                itemContainer.classList.add('item');
+
+                
+                var itemImage = document.createElement('img');
+                itemImage.src = item.imageSrc;
+                itemImage.alt = item.name;
+
+                var itemName = document.createElement('div');
+                itemName.textContent = item.name;
+
+                var itemPrice = document.createElement('div');
+                itemPrice.textContent = '$' + (parseFloat(item.price.slice(1)) * item.quantity).toFixed(2); 
+
+                var quantityContainer = document.createElement('div');
+                quantityContainer.classList.add('quantity');
+                var decreaseButton = document.createElement('span');
+                decreaseButton.classList.add('quantity-btn');
+                decreaseButton.textContent = '-';
+                decreaseButton.onclick = function() {
+                    if (item.quantity > 1) {
+                        item.quantity--;
+                        updateCartView(cart);
+                    }
+                };
+                var quantityValue = document.createElement('span');
+                quantityValue.textContent = item.quantity;
+                var increaseButton = document.createElement('span');
+                increaseButton.classList.add('quantity-btn');
+                increaseButton.textContent = '+';
+                increaseButton.onclick = function() {
+                    item.quantity++;
+                    updateCartView(cart);
+                };
+                quantityContainer.appendChild(decreaseButton);
+                quantityContainer.appendChild(quantityValue);
+                quantityContainer.appendChild(increaseButton);
+
+                var deleteButton = document.createElement('span');
+                deleteButton.classList.add('delete-btn');
+                deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+                deleteButton.onclick = function() {
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart)); 
+                    updateCartView(cart); 
+                    updateCartCount(cart.length); 
+                };
+
+              
+                itemContainer.appendChild(itemImage);
+                itemContainer.appendChild(itemName);
+                itemContainer.appendChild(itemPrice);
+                itemContainer.appendChild(deleteButton);
+                itemContainer.appendChild(quantityContainer); 
+
+              
+                cartContainer.appendChild(itemContainer);
+            });
+        }
+
+        function updateCartCount(count) {
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function toggleCart() {
+            var cartTab = document.getElementById('cartTab');
+            if (cartTab.style.display === 'block') {
+                cartTab.style.display = 'none';
+            } else {
+                cartTab.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

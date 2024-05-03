@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WEB DESIGN PROJECT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f3f5f9;
+        }
+
+        .wrapper {
+            display: flex;
+            position: relative;
+        }
+
+        .wrapper .sidebar {
+            width: 200px;
+            height: 100%;
+            background: #4b4276;
+            padding: 30px 0px;
+            position: fixed;
+        }
+
+        .wrapper .sidebar h2 {
+            color: #fff;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .wrapper .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #bdb8d7;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .wrapper .sidebar ul li a {
+            color: #bdb8d7;
+            display: block;
+        }
+
+        .wrapper .sidebar ul li a .fas {
+            width: 25px;
+        }
+
+        .wrapper .sidebar ul li:hover {
+            background-color: #594f8d;
+        }
+
+        .wrapper .sidebar ul li:hover a {
+            color: #fff;
+        }
+
+        .wrapper .main_content {
+            width: 100%;
+            margin-left: 200px;
+        }
+
+        .wrapper .main_content .header {
+            padding: 20px;
+            background: #fff;
+            color: #717171;
+            border-bottom: 1px solid #e0e4e8;
+        }
+
+        .wrapper .main_content .info {
+            margin: 20px;
+            color: #717171;
+            line-height: 25px;
+        }
+
+        .wrapper .main_content .info div {
+            margin-bottom: 20px;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-box {
+            background-color: #F4CA16;
+            border: 1px solid #e0e4e8;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+			height: 500px;
+        }
+
+        .product-box img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product-box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-box p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .product-box:hover {
+            transform: scale(1.05);
+        }
+		.animated {
+			transform: scale(1.05);
+		}
+		.read-more {
+			display: inline-block;
+			padding: 8px 16px;
+			background-color: #535ec2;
+			color: white;
+			border: none;
+			border-radius: 10px;
+			text-align: center;
+			text-decoration: none;
+			transition: background-color 0.3s;
+      border-spacing: 90px;
+		}
+
+		.read-more:hover {
+			background-color: #37419e;
+		}
+
+    
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Anemo</h2>
+            <ul>
+                <li><a href="home.html"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="product.html"><i class="fas fa-tag"></i>Product</a></li>
+                <li><a href="about.html"><i class="fas fa-user"></i>About</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+        <div class="main_content">
+            <div class="header">
+              <h1>Products</h1></div>
+            <div class="info">
+                <div class="product-container">
+                  <div class="product-box" onclick="animateProduct(this)">
+                    <a href="aot.html">
+                        <img src="images/aot.png" alt="Product 1">
+                        <h3>ATTACK ON TITANS</h3>
+                        <p>The story follows Eren Yeager, a man vowed to destroy the Titans who destroyed his hometown and killed his mother, living in a world surrounded by massive walls.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                    </a>
+                </div>            
+
+                <div class="product-box" onclick="animateProduct(this)">
+                    <a href="bananafish.html">
+                        <img src="images/bananafish.jpg" alt="Product 2">     
+                        <h3>BANANA FISH</h3>
+                        <p>In the 1980s, New York City street gang leader Ash Lynx uncovers a criminal conspiracy involving "banana fish," a mysterious drug that brainwashes users, forming a close bond with Japanese photographer Eiji Okumura.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                    </a>
+                </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="beastars.html">
+                        <img src="images/beastars.jpg" alt="Product 3">
+                        <h3>BEASTARS</h3>
+                        <p>The story takes place in a modern world of civilized, anthropomorphic animals with a cultural divide between carnivores and herbivores, and where eating meat is strictly illegal.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="csm.html">
+                        <img src="images/csm.png" alt="Product 4">
+                        <h3>CHAINSAW MAN</h3>
+                        <p>Denji, an impoverished teenager, contracts Pochita, a dog-like Devil, allowing him to transform into chainsaws. He joins the Public Safety Devil Hunters to combat Devil threats.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="danganronpa.html">
+                        <img src="images/Kirigiri-Kyouko-Figure.png" alt="Product 5">
+                        <h3>DANGANRONPA</h3>
+                        <p>The series primarily surrounds various groups of apparent high-school students who are forced into murdering each other by a robotic teddy bear named Monokuma.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="eva.html">
+                        <img src="images/evangelion.jpg" alt="Product 6">
+                        <h3>EVANGELION</h3>
+                        <p>Shinji Ikari, a teenage boy recruited by Nerv to pilot an Evangelion and fight Angels, returns to Tokyo-3 fifteen years after the Second Impact.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="jjk.html">
+                        <img src="images/jjk.jpg" alt="Product 7">
+                        <h3>JUJUTSU KAISEN</h3>
+                        <p>Yuji Itadori, a high school student, joins a secret Jujutsu Sorcerer organization to defeat Ryomen Sukuna, a powerful Curse, whom Yuji becomes the host.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="solol.html">
+                        <img src="images/solol.png" alt="Product 8">
+                        <h3>SOLO LEVELING</h3>
+                        <p>Sung Jinwoo, a weak hunter, is chosen by the System program, granting him unique strength leveling abilities after surviving a powerful double dungeon.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="one.html">
+                        <img src="images/one.jpg" alt="Product 9">
+                        <h3>ONE PIECE</h3>
+                        <p>The story follows Monkey D. Luffy and his Straw Hat Pirates on their quest for the "One Piece" treasure, aiming to become the next King of the Pirates.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+
+                     <div class="product-box" onclick="animateProduct(this)">
+                      <a href="seraph.html">
+                        <img src="images/seraph.png" alt="Product 10">
+                        <h3>OWARI NO SERAPH</h3>
+                        <p>The series follows Yūichirō Hyakuya, who joins a vampire extermination unit to save his friend Mikaela and avenge his family's deaths amidst a world ravaged by a 'human-made' virus.</p>
+                        <span class="read-more">CHECK IT OUT</span>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function animateProduct(product) {
+            product.classList.add('animated');
+            setTimeout(() => {
+                product.classList.remove('animated');
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
